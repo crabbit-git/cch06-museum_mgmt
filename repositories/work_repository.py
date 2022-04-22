@@ -43,3 +43,12 @@ def select(id):
             museum_repository.select(selection['museum_id']),
             selection['id']
         )
+
+def update(work):
+    sql = """
+    UPDATE works
+    SET (title, artist, year, museum_id) = (%s, %s, %s, %s)
+    WHERE id = %s
+    """
+    values = [work.title, work.artist, work.year, work.museum.id, work.id]
+    run_sql(sql, values)

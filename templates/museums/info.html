@@ -3,5 +3,8 @@
     <section>
         <h2>{{ museum.name }}</h2>
         <p>{{ museum.address }}</p>
+        <form class="edit_form" action="/museums/{{museum.id}}/edit" method="GET">
+            <button>Edit museum details</button>
+        </form>
     </section>
 {% endblock %}

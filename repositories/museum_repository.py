@@ -37,3 +37,12 @@ def select(id):
             selection['address'],
             selection['id']
         )
+
+def update(museum):
+    sql = """
+    UPDATE museums
+    SET (name, address) = (%s, %s)
+    WHERE id = %s
+    """
+    values = [museum.name, museum.address, museum.id]
+    run_sql(sql, values)

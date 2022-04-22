@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
     <section>
-        <h2>{{ work.title }} ({{ work.year }}</h2>
-        <p>Currently exhibited at: {{ work.museum.name }}</p>
+        <h2>{{ work.title }} ({{ work.year }})</h2>
         <p>Artist: {{ work.artist }}</p>
+        <p>Currently exhibited at: {{ work.museum.name }}</p>
+        <form class="edit_form" action="/works/{{work.id}}/edit" method="GET">
+            <button>Edit work details</button>
+        </form>
     </section>
 {% endblock %}
