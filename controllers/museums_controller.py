@@ -63,3 +63,7 @@ def update_museum(id):
 
 # DELETE
 # DELETE '/museums/<id>'
+@museums_blueprint.route("/museums/<id>/delete", methods=['POST'])
+def delete_museum(id):
+    museum_repository.delete(id)
+    return redirect("/museums")

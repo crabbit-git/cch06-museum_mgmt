@@ -52,3 +52,8 @@ def update(work):
     """
     values = [work.title, work.artist, work.year, work.museum.id, work.id]
     run_sql(sql, values)
+
+def delete(id):
+    sql = "DELETE FROM works WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

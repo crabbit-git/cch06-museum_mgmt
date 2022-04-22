@@ -6,5 +6,8 @@
         <form class="edit_form" action="/museums/{{museum.id}}/edit" method="GET">
             <button>Edit museum details</button>
         </form>
+        <form class="deletion_form" action="/museums/{{museum.id}}/delete" method="POST">
+            <button>Delete this museum</button>
+        </form>
     </section>
 {% endblock %}

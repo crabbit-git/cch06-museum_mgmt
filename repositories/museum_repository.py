@@ -46,3 +46,8 @@ def update(museum):
     """
     values = [museum.name, museum.address, museum.id]
     run_sql(sql, values)
+
+def delete(id):
+    sql = "DELETE FROM museums WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
