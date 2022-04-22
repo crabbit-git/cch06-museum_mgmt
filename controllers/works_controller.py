@@ -18,9 +18,24 @@ def works():
 
 # NEW
 # GET '/works/new'
+@works_blueprint.route("/works/new", methods=['GET'])
+def add_work():
+    return render_template(
+        "works/new.html",
+        museums = museum_repository.select_all()
+        )
 
 # CREATE
 # POST '/works'
+@works_blueprint.route("/works", methods=['POST'])
+def construct_work():
+    title = request.form['title']
+    artist = request.form['artist']
+    year = request.form['year']
+    museum = museum_repository.select(request.form['museum_id'])
+    work = Work(title, artist, year, museum)
+    work_repository.save(work)
+    return redirect("/works")
 
 # SHOW
 # GET '/works/<id>'

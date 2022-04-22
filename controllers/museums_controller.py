@@ -16,9 +16,22 @@ def museums():
 
 # NEW
 # GET '/museums/new'
+@museums_blueprint.route("/museums/new", methods=['GET'])
+def add_museum():
+    return render_template(
+        "museums/new.html",
+        museums = museum_repository.select_all()
+        )
 
 # CREATE
 # POST '/museums'
+@museums_blueprint.route("/museums", methods=['POST'])
+def construct_museum():
+    name = request.form['name']
+    address = request.form['address']
+    museum = Museum(name, address)
+    museum_repository.save(museum)
+    return redirect("/museums")
 
 # SHOW
 # GET '/museums/<id>'
