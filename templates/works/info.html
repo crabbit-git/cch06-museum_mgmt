@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <h2>{{ work.title }} ({{ work.year }}</h2>
+        <p>Currently exhibited at: {{ work.museum.name }}</p>
+        <p>Artist: {{ work.artist }}</p>
+    </section>
+{% endblock %}

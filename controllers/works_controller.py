@@ -39,6 +39,12 @@ def construct_work():
 
 # SHOW
 # GET '/works/<id>'
+@works_blueprint.route("/works/<id>", methods=['GET'])
+def work_info(id):
+    return render_template(
+        "works/info.html",
+        work = work_repository.select(id)
+        )
 
 # EDIT
 # GET '/works/<id>/edit'

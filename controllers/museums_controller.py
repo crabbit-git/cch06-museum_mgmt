@@ -35,6 +35,12 @@ def construct_museum():
 
 # SHOW
 # GET '/museums/<id>'
+@museums_blueprint.route("/museums/<id>", methods=['GET'])
+def museum_info(id):
+    return render_template(
+        "museums/info.html",
+        museum = museum_repository.select(id)
+        )
 
 # EDIT
 # GET '/museums/<id>/edit'
